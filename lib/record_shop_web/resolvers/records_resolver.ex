@@ -20,6 +20,7 @@ defmodule RecordShopWeb.RecordsResolver do
 
   def update_record(_root, args, _info) do
     record = Records.get_record!(args[:id], [:artists])
+
     case Records.update_record(record, args) do
       {:ok, record} -> {:ok, record}
       _error -> {:error, "Could not update record"}
@@ -28,6 +29,7 @@ defmodule RecordShopWeb.RecordsResolver do
 
   def delete_record(_root, args, _info) do
     record = Records.get_record!(args[:id], [:artists])
+
     case Records.delete_record(record) do
       {:ok, record} -> {:ok, record}
       _error -> {:error, "Could not delete record"}
@@ -36,6 +38,7 @@ defmodule RecordShopWeb.RecordsResolver do
 
   def record_set_archived(_root, args, _info) do
     record = Records.get_record!(args[:id], [:artists])
+
     case Records.update_record(record, args) do
       {:ok, record} -> {:ok, record}
       _error -> {:error, "Could not update record"}

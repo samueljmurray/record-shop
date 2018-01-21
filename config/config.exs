@@ -6,16 +6,14 @@
 use Mix.Config
 
 # General application configuration
-config :record_shop,
-  ecto_repos: [RecordShop.Repo]
+config :record_shop, ecto_repos: [RecordShop.Repo]
 
 # Configures the endpoint
 config :record_shop, RecordShopWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "f4WavD8BtE7T53R7EbU2sUcAQEZbLsM4FMmpSo1KI5o5y5NgEpwmt1cjbz5jk7WL",
   render_errors: [view: RecordShopWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: RecordShop.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: RecordShop.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,4 +22,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

@@ -9,13 +9,15 @@ defmodule RecordShop.Records do
   alias RecordShop.Records.Record
 
   def list_records(args) do
-    limit = args[:first] 
+    limit = args[:first]
     offset = (args[:page] - 1) * limit
+
     Record
     |> limit(^limit)
     |> offset(^offset)
     |> Repo.all()
   end
+
   def list_records(args, preloads) when is_list(preloads) do
     args
     |> list_records()
@@ -23,6 +25,7 @@ defmodule RecordShop.Records do
   end
 
   def get_record!(id), do: Repo.get!(Record, id)
+
   def get_record!(id, preloads) when is_list(preloads) do
     id
     |> get_record!

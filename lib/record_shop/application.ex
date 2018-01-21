@@ -11,7 +11,7 @@ defmodule RecordShop.Application do
       # Start the Ecto repository
       supervisor(RecordShop.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(RecordShopWeb.Endpoint, []),
+      supervisor(RecordShopWeb.Endpoint, [])
       # Start your own worker by calling: RecordShop.Worker.start_link(arg1, arg2, arg3)
       # worker(RecordShop.Worker, [arg1, arg2, arg3]),
     ]
