@@ -40,7 +40,8 @@ defmodule RecordShop.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:absinthe_ecto, "~> 0.1.3"},
-      {:absinthe_plug, "~> 1.4.2"}
+      {:absinthe_plug, "~> 1.4.2"},
+      {:corsica, "~> 1.1.0"}
     ]
   end
 

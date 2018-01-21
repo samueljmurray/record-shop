@@ -3,6 +3,7 @@ defmodule RecordShopWeb.Router do
 
   pipeline :api do
     plug(:accepts, ["json"])
+    plug(Corsica, origins: "http://localhost:3000", allow_headers: ["content-type"])
 
     plug(
       Plug.Parsers,
