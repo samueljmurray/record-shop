@@ -9,8 +9,8 @@ defmodule RecordShop.Records do
   alias RecordShop.Records.Record
 
   def list_records(args) do
-    limit = args[:first]
-    offset = (args[:page] - 1) * limit
+    limit = args[:limit]
+    offset = args[:offset]
 
     Record
     |> limit(^limit)

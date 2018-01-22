@@ -19,8 +19,8 @@ defmodule RecordShopWeb.Schema do
 
   query do
     field :list_records, non_null(list_of(non_null(:record))) do
-      arg(:first, non_null(:integer))
-      arg(:page, non_null(:integer))
+      arg(:limit, non_null(:integer))
+      arg(:offset, non_null(:integer))
       resolve(&RecordsResolver.list_records/3)
     end
 
