@@ -4,8 +4,9 @@ defmodule RecordShopWeb.ArtistView do
   alias RecordShop.Artists.Artist
 
   def render("show.json", %{artist: artist}) do
-    Map.new
-    |> Map.put(:id, artist.id)
-    |> Map.put(:name, artist.name)
+    %{
+      id: artist.id,
+      name: artist.name
+    }
   end
 end

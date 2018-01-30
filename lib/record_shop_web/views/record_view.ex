@@ -12,11 +12,12 @@ defmodule RecordShopWeb.RecordView do
   end
 
   def render_record(conn, %Record{} = record) do
-    Map.new
-    |> Map.put(:id, record.id)
-    |> Map.put(:title, record.title)
-    |> Map.put(:year, record.year)
-    |> Map.put(:artists, Enum.map(record.artists, &(artist_url(conn, :show, &1))))
-    |> Map.put(:archived_at, record.archived_at)
+    %{
+      id: record.id,
+      title: record.title,
+      year: record.year,
+      artists: Enum.map(record.artists, &(artist_url(conn, :show, &1))),
+      archived_at: record.archived_at
+    }
   end
 end

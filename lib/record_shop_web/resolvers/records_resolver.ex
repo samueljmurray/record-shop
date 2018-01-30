@@ -36,7 +36,7 @@ defmodule RecordShopWeb.RecordsResolver do
     end
   end
 
-  def record_set_archived(_root, args, _info) do
+  def set_record_archived(_root, args, _info) do
     record = Records.get_record!(args[:id], [:artists])
 
     case Records.update_record(record, args) do

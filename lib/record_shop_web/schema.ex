@@ -19,8 +19,8 @@ defmodule RecordShopWeb.Schema do
 
   query do
     field :records, non_null(list_of(non_null(:record))) do
-      arg(:limit, non_null(:integer))
-      arg(:offset, non_null(:integer))
+      arg(:limit, :integer)
+      arg(:offset, :integer)
       resolve(&RecordsResolver.list_records/3)
     end
 
@@ -58,11 +58,11 @@ defmodule RecordShopWeb.Schema do
       resolve(&RecordsResolver.delete_record/3)
     end
 
-    field :record_set_archived, :record do
+    field :set_record_archived, :record do
       arg(:id, non_null(:id))
       arg(:archived, non_null(:boolean))
 
-      resolve(&RecordsResolver.record_set_archived/3)
+      resolve(&RecordsResolver.set_record_archived/3)
     end
   end
 end
