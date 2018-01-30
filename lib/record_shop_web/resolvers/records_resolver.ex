@@ -6,8 +6,8 @@ defmodule RecordShopWeb.RecordsResolver do
     {:ok, records}
   end
 
-  def get_record(_root, args, _info) do
-    record = Records.get_record!(args[:id], [:artists])
+  def get_record(_root, %{id: id}, _info) do
+    record = Records.get_record!(id, [:artists])
     {:ok, record}
   end
 
@@ -18,8 +18,8 @@ defmodule RecordShopWeb.RecordsResolver do
     end
   end
 
-  def update_record(_root, args, _info) do
-    record = Records.get_record!(args[:id], [:artists])
+  def update_record(_root, %{id: id} = args, _info) do
+    record = Records.get_record!(id, [:artists])
 
     case Records.update_record(record, args) do
       {:ok, record} -> {:ok, record}
@@ -43,5 +43,10 @@ defmodule RecordShopWeb.RecordsResolver do
       {:ok, record} -> {:ok, record}
       _error -> {:error, "Could not update record"}
     end
+  end
+
+  def count_records(_root, _args, _info) do
+    count = Records.count_records()
+    {:ok, count}
   end
 end

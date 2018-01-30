@@ -9,8 +9,8 @@ defmodule RecordShop.Records do
   alias RecordShop.Records.Record
 
   def list_records(args) do
-    limit = args[:limit]
-    offset = args[:offset]
+    limit = args[:limit] || args["limit"]
+    offset = args[:offset] || args["limit"]
 
     Record
     |> limit(^limit)
@@ -50,5 +50,9 @@ defmodule RecordShop.Records do
 
   def change_record(%Record{} = record) do
     Record.changeset(record, %{})
+  end
+
+  def count_records() do
+    Repo.aggregate(Record, :count, :id)
   end
 end

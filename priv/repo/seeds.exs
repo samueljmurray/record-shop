@@ -5,7 +5,8 @@ alias RecordShop.Repo
 %Record{
   title: "Rain Dogs",
   year: 1985,
-  artists: [
+  artists:
+  [
     %Artist{
       name: "Tom Waits"
     }
@@ -15,7 +16,7 @@ alias RecordShop.Repo
 %Record{
   title: "Gang Signs And Prayer",
   year: 2017,
-  artists: 
+  artists:
   [
     %Artist{
       name: "Stormzy"
@@ -26,7 +27,7 @@ alias RecordShop.Repo
 %Record{
   title: "Kakashi",
   year: 1982,
-  artists: 
+  artists:
   [
     %Artist{
       name: "Yasuaki Shimizu"
@@ -37,13 +38,24 @@ alias RecordShop.Repo
 %Record{
   title: "Collaborative Works",
   year: 2015,
-  artists: 
+  artists:
   [
     %Artist{
       name: "Ólafur Arnalds"
     },
     %Artist{
       name: "Nils Frahm"
+    }
+  ]
+} |> Repo.insert!
+
+%Record{
+  title: "Clouds",
+  year: 2017,
+  artists:
+  [
+    %Artist{
+      name: "Gigi Masin"
     }
   ]
 } |> Repo.insert!
