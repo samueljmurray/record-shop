@@ -22,11 +22,14 @@ defmodule RecordShopWeb.Schema do
     field :records, non_null(list_of(non_null(:record))) do
       arg(:limit, :integer)
       arg(:offset, :integer)
+      arg(:artist_ids, list_of(non_null(:integer)))
+
       resolve(&RecordsResolver.list_records/3)
     end
 
     field :record, non_null(:record) do
       arg(:id, non_null(:id))
+
       resolve(&RecordsResolver.get_record/3)
     end
 

@@ -15,6 +15,7 @@ defmodule RecordShop.Records do
     Record
     |> limit(^limit)
     |> offset(^offset)
+    |> maybe_filter_by_artist_ids(args)
     |> Repo.all()
   end
 
@@ -55,4 +56,11 @@ defmodule RecordShop.Records do
   def count_records() do
     Repo.aggregate(Record, :count, :id)
   end
+
+  defp maybe_filter_by_artist_ids(query, %{artist_ids: artist_ids} = args) do
+    from r in query,
+      left_join: a in assoc(r, :artists),
+      where: a.id in ^artist_ids
+  end
+  defp maybe_filter_by_artist_ids(query, _args), do: query
 end
