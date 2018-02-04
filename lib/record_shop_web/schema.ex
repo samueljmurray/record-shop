@@ -8,6 +8,7 @@ defmodule RecordShopWeb.Schema do
     field(:id, non_null(:id))
     field(:title, non_null(:string))
     field(:year, non_null(:integer))
+    field(:image_base64, :string)
     field(:artists, non_null(list_of(non_null(:artist))))
     field(:archived_at, :datetime)
   end
@@ -39,6 +40,7 @@ defmodule RecordShopWeb.Schema do
       arg(:title, non_null(:string))
       arg(:year, non_null(:integer))
       arg(:artist_ids, non_null(list_of(non_null(:integer))))
+      arg(:image_base64, :string)
 
       resolve(&RecordsResolver.create_record/3)
     end
@@ -48,6 +50,7 @@ defmodule RecordShopWeb.Schema do
       arg(:title, :string)
       arg(:year, :integer)
       arg(:artist_ids, list_of(non_null(:integer)))
+      arg(:image_base64, :string)
 
       resolve(&RecordsResolver.update_record/3)
     end

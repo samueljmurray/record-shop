@@ -7,6 +7,7 @@ defmodule RecordShop.Records.Record do
   schema "records" do
     field(:title, :string)
     field(:year, :integer)
+    field(:image_base64, :string)
     field(:archived_at, :utc_datetime)
     field(:archived, :boolean, virtual: true)
 
@@ -23,7 +24,7 @@ defmodule RecordShop.Records.Record do
 
   def changeset(%Record{} = record, attrs) do
     record
-    |> cast(attrs, [:title, :year])
+    |> cast(attrs, [:title, :year, :image_base64])
     |> put_artists(attrs)
     |> put_archived_at(attrs)
     |> validate_required([:title, :year, :artists])
